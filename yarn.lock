@@ -1021,10 +1021,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@next/bundle-analyzer@^9.1.5":
-  version "9.1.5"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-9.1.5.tgz#6fa24daa462a19064ec87a7bfcd6113d9681c585"
-  integrity sha512-aQzZznpGjUJpn7QFFiYN8gV5CWKWa7KbuGE6zsSNfoGGTHdzTqjqUkjXE7sOtAzRW33s0a4HRX+WtwZVHHqdjg==
+"@next/bundle-analyzer@^9.1.6":
+  version "9.1.6"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-9.1.6.tgz#7d91769b05d43f80a889d1186bd75c744ca4ab57"
+  integrity sha512-MFUceoraUSqXaqtjef/AlgZe746k5+FUfbtIVRKMqzYBrhs9H39/ES4ErUvYk5auUo7D8dUMAWae2mlWN2S3vw==
   dependencies:
     webpack-bundle-analyzer "3.3.2"
 
