@@ -1,26 +1,20 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
-import { createClient, Entry } from 'contentful';
 import { NextPage } from 'next';
-import { PostFields } from '../domain/entities/PostEntity';
-
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-});
-const POST_CONTENT_TYPE = 'post';
+import { getPosts } from '../domain/repositories/postRepository';
+import Post from '../domain/entities/PostEntity';
 
 interface Props {
-  items: Entry<PostFields>[];
+  items: Post[];
 }
 
 const Index: NextPage<Props> = ({ items }) => (
   <Layout>
     <p>Hello Next.js</p>
-    {items.map(({ fields }) => (
-      <li key={fields.title}>
-        <Link href={`/p/[postId]`} as={`/p/${fields.title}`}>
-          <a>{fields.title}</a>
+    {items.map(({ slug, title, body }) => (
+      <li key={slug}>
+        <Link href={`/p/[postId]`} as={`/p/${slug}`}>
+          <a>{title}</a>
         </Link>
       </li>
     ))}
@@ -28,11 +22,9 @@ const Index: NextPage<Props> = ({ items }) => (
 );
 
 Index.getInitialProps = async (): Promise<Props> => {
-  const entries = await client.getEntries<PostFields>({
-    content_type: POST_CONTENT_TYPE,
-  });
+  const posts = await getPosts();
   return {
-    items: entries.items,
+    items: posts,
   };
 };
 
