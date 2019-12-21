@@ -9,4 +9,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           zeit-token: ${{ secrets.ZEIT_TOKEN }}
-          now-args: '--prod'
+          now-args: '-b CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} -b CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }}'
