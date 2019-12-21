@@ -6,6 +6,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "deploy": "npx now --prod -b CONTENTFUL_SPACE_ID=$CONTENTFUL_SPACE_ID -b CONTENTFUL_ACCESS_TOKEN=$CONTENTFUL_ACCESS_TOKEN",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
