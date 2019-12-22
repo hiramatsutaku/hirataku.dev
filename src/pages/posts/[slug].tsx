@@ -20,7 +20,7 @@ const PostPage: NextPage<Props> = ({ item }) => {
 };
 
 PostPage.getInitialProps = async (context: NextPageContext): Promise<Props> => {
-  const entry = await getPostBySlug(context.query.postId as string);
+  const entry = await getPostBySlug(context.query.slug as string);
   return {
     item: entry,
   };
