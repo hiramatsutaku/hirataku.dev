@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import React from 'react';
 import Layout from '../../components/Layout';
 import { NextPageContext, NextPage } from 'next';
 import { getPostBySlug } from '../../domain/repositories/postRepository';
@@ -10,7 +10,6 @@ interface Props {
 }
 
 const PostPage: NextPage<Props> = ({ item }) => {
-  const router = useRouter();
   return (
     <Layout>
       <h1>{item.title}</h1>

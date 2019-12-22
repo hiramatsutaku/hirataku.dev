@@ -5,3 +5,6 @@ next-env.d.ts
 
 # dotenv
 .env
+
+# eslint
+.eslintcache

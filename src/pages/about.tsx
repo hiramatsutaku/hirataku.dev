@@ -1,6 +1,8 @@
+import React from 'react';
 import Layout from '../components/Layout';
+import { NextPage } from 'next';
 
-const About = () => (
+const About: NextPage<{}> = () => (
   <Layout>
     <p>Hello Next.js</p>
   </Layout>

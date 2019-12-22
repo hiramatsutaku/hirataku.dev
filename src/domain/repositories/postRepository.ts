@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { client } from './contentful';
 import Post, { PostFields } from '../entities/PostEntity';
 

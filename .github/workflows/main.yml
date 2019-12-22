@@ -9,4 +9,5 @@ jobs:
         with:
           node-version: '11.15.0'
       - run: yarn install
+      - run: yarn lint:es
       - run: yarn tsc
