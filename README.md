@@ -6,6 +6,10 @@
 
 - https://zeit.co/hiramatsutaku/blog-taku-dev
 
+## Contentful
+
+- https://app.contentful.com/spaces/jlqi8mbzk1is/home
+
 ## deployment
 
 - staging
