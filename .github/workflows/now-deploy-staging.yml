@@ -1,7 +1,7 @@
 name: now deploy preview
 on:
   push:
-    paths:
+    branches:
       - master
 jobs:
   deploy:
