@@ -1,3 +1,4 @@
+import React from 'react';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import { NextPage } from 'next';
@@ -11,7 +12,7 @@ interface Props {
 const Index: NextPage<Props> = ({ items }) => (
   <Layout>
     <p>Hello Next.js</p>
-    {items.map(({ slug, title, body }) => (
+    {items.map(({ slug, title }) => (
       <li key={slug}>
         <Link href={`/posts/[postId]`} as={`/posts/${slug}`}>
           <a>{title}</a>

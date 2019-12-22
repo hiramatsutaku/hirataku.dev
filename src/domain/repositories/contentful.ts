@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createClient } from 'contentful';
 
 export const client = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN!
