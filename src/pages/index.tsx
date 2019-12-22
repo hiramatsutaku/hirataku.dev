@@ -13,7 +13,7 @@ const Index: NextPage<Props> = ({ items }) => (
     <p>Hello Next.js</p>
     {items.map(({ slug, title, body }) => (
       <li key={slug}>
-        <Link href={`/p/[postId]`} as={`/p/${slug}`}>
+        <Link href={`/posts/[postId]`} as={`/posts/${slug}`}>
           <a>{title}</a>
         </Link>
       </li>
