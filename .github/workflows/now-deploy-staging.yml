@@ -13,3 +13,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           zeit-token: ${{ secrets.ZEIT_TOKEN }}
           now-args: '--prod -n ${{ secrets.STG_NOW_PROJECT_NAME }} -b CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} -b CONTENTFUL_PREVIEW_ACCESS_TOKEN=${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}'
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_CHANNEL: blog-taku-dev
+          SLACK_MESSAGE: 'https://stg-blog-taku-dev.now.sh/ :rocket:'
+          SLACK_TITLE: Staging URL
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
