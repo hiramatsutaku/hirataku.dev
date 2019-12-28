@@ -11,6 +11,8 @@
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "storybook:dev": "start-storybook",
+    "storybook:build": "build-storybook -c .storybook",
     "lint:es": "eslint . --ext .js,.ts,.tsx --cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
