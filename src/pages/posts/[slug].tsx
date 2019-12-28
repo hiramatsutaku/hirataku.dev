@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../../components/Layout';
+import { Layout } from '../../components/Layout';
 import { NextPageContext, NextPage } from 'next';
 import { getPostBySlug } from '../../domain/repositories/postRepository';
 import Post from '../../domain/entities/PostEntity';
