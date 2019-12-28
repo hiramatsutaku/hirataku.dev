@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import { Header } from './Header';
 
 const layoutStyle = {
   margin: 20,
@@ -7,11 +7,9 @@ const layoutStyle = {
   border: '1px solid #DDD',
 };
 
-const Layout: React.FC<{}> = ({ children }) => (
+export const Layout: React.FC<{}> = ({ children }) => (
   <div style={layoutStyle}>
     <Header />
     {children}
   </div>
 );
-
-export default Layout;

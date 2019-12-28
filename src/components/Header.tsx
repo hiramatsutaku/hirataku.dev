@@ -5,7 +5,7 @@ const linkStyle = {
   marginRight: 15,
 };
 
-const Header: React.FC<{}> = () => (
+export const Header: React.FC<{}> = () => (
   <div>
     <Link href="/">
       <a style={linkStyle}>Home</a>
@@ -15,5 +15,3 @@ const Header: React.FC<{}> = () => (
     </Link>
   </div>
 );
-
-export default Header;
