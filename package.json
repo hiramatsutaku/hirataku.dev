@@ -14,6 +14,7 @@
     "storybook:dev": "start-storybook",
     "storybook:build": "build-storybook -c .storybook",
     "lint:es": "eslint . --ext .js,.ts,.tsx --cache",
+    "lint:style": "stylelint \"src/**/*.tsx\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
