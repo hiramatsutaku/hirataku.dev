@@ -1,16 +1,17 @@
 import React from 'react';
 import Head from 'next/head';
 import { Header } from './Header';
+import styled from 'styled-components';
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD',
-  fontFamily: "'Lato', 'M PLUS Rounded 1c', sans-serif",
-};
+const Wrapper = styled.div`
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  font-family: 'Lato', 'M PLUS Rounded 1c', sans-serif;
+`;
 
 export const Layout: React.FC<{}> = ({ children }) => (
-  <div style={layoutStyle}>
+  <Wrapper>
     <Head>
       <title>blog.taku.dev</title>
       <meta charSet="utf-8" />
@@ -21,5 +22,5 @@ export const Layout: React.FC<{}> = ({ children }) => (
     </Head>
     <Header />
     {children}
-  </div>
+  </Wrapper>
 );
