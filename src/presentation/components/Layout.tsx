@@ -6,7 +6,7 @@ import { Footer } from './Footer';
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 16px;
   box-sizing: border-box;
   font-family: 'Lato', 'M PLUS Rounded 1c', sans-serif;
   max-width: 800px;
