@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../components/Layout';
+import { Layout } from '../presentation/components/Layout';
 import Link from 'next/link';
 import { NextPage } from 'next';
 import { getPosts } from '../domain/repositories/postRepository';
