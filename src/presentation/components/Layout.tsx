@@ -2,11 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import { Header } from './Header';
 import styled from 'styled-components';
+import { Footer } from './Footer';
 
 const Wrapper = styled.div`
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
-  border: 1px solid #ddd;
   font-family: 'Lato', 'M PLUS Rounded 1c', sans-serif;
 `;
 
@@ -22,5 +22,6 @@ export const Layout: React.FC<{}> = ({ children }) => (
     </Head>
     <Header />
     {children}
+    <Footer />
   </Wrapper>
 );
