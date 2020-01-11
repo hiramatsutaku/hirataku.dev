@@ -12,13 +12,15 @@ interface Props {
 const Index: NextPage<Props> = ({ items }) => (
   <Layout>
     <p>Posts</p>
-    {items.map(({ slug, title }) => (
-      <li key={slug}>
-        <Link href={`/posts/[postId]`} as={`/posts/${slug}`}>
-          <a>{title}</a>
-        </Link>
-      </li>
-    ))}
+    <ul>
+      {items.map(({ slug, title }) => (
+        <li key={slug}>
+          <Link href={`/posts/[postId]`} as={`/posts/${slug}`}>
+            <a>{title}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
   </Layout>
 );
 
