@@ -11,7 +11,7 @@ interface Props {
 
 const Index: NextPage<Props> = ({ items }) => (
   <Layout>
-    <p>Hello Next.js</p>
+    <p>Posts</p>
     {items.map(({ slug, title }) => (
       <li key={slug}>
         <Link href={`/posts/[postId]`} as={`/posts/${slug}`}>

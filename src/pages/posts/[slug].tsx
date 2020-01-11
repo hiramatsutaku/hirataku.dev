@@ -1,19 +1,18 @@
 import React from 'react';
 import { Layout } from '../../presentation/components/Layout';
 import { NextPageContext, NextPage } from 'next';
-import Post from '../../domain/post/PostEntity';
-import ReactMarkdown from 'react-markdown';
+import PostEntity from '../../domain/post/PostEntity';
 import { PostApplicationService } from '../../application/PostApplicationService';
+import { Post } from '../../presentation/components/Post';
 
 interface Props {
-  item: Post;
+  item: PostEntity;
 }
 
 const PostPage: NextPage<Props> = ({ item }) => {
   return (
     <Layout>
-      <h1>{item.title}</h1>
-      <ReactMarkdown source={item.body} skipHtml={true} />
+      <Post post={item} />
     </Layout>
   );
 };

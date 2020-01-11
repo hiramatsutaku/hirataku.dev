@@ -4,7 +4,7 @@ export interface PostFields {
   body: string;
 }
 
-export default class Post {
+export default class PostEntity {
   readonly slug: string;
   readonly title: string;
   readonly body: string;
