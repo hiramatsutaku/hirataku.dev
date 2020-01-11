@@ -1,8 +1,8 @@
 import React from 'react';
 import { Layout } from '../../presentation/components/Layout';
 import { NextPageContext, NextPage } from 'next';
-import { getPostBySlug } from '../../domain/repositories/postRepository';
-import Post from '../../domain/entities/PostEntity';
+import { PostRepository } from '../../infrastructure/repositories/PostRepository';
+import Post from '../../domain/post/PostEntity';
 import ReactMarkdown from 'react-markdown';
 
 interface Props {
@@ -19,7 +19,8 @@ const PostPage: NextPage<Props> = ({ item }) => {
 };
 
 PostPage.getInitialProps = async (context: NextPageContext): Promise<Props> => {
-  const entry = await getPostBySlug(context.query.slug as string);
+  const repo = new PostRepository();
+  const entry = await repo.getPostBySlug(context.query.slug as string);
   return {
     item: entry,
   };
