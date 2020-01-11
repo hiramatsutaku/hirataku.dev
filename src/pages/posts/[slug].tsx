@@ -11,7 +11,7 @@ interface Props {
 
 const PostPage: NextPage<Props> = ({ item }) => {
   return (
-    <Layout>
+    <Layout description={item.title}>
       <Post post={item} />
     </Layout>
   );
