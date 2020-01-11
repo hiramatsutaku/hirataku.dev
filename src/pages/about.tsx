@@ -6,9 +6,11 @@ import { Title } from '../presentation/components/Title';
 const About: NextPage<{}> = () => (
   <Layout>
     <Title text="About" />
-    <div>
-      GitHub: <a href="https://github.com/hiramatsutaku">https://github.com/hiramatsutaku</a>
-    </div>
+    <ul>
+      <li>
+        GitHub: <a href="https://github.com/hiramatsutaku">https://github.com/hiramatsutaku</a>
+      </li>
+    </ul>
   </Layout>
 );
 
