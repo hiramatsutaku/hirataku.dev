@@ -13,6 +13,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   rules: {
     'react/prop-types': 'off',
+    '@typescript-eslint/interface-name-prefix': 'off',
   },
   settings: {
     react: {
