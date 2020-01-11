@@ -2,8 +2,8 @@ import React from 'react';
 import { Layout } from '../presentation/components/Layout';
 import Link from 'next/link';
 import { NextPage } from 'next';
-import { PostRepository } from '../infrastructure/repositories/PostRepository';
 import Post from '../domain/post/PostEntity';
+import { PostApplicationService } from '../application/PostApplicationService';
 
 interface Props {
   items: Post[];
@@ -23,8 +23,8 @@ const Index: NextPage<Props> = ({ items }) => (
 );
 
 Index.getInitialProps = async (): Promise<Props> => {
-  const repo = new PostRepository();
-  const posts = await repo.getPosts();
+  const service = new PostApplicationService();
+  const posts = await service.getPosts();
   return {
     items: posts,
   };
