@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { NextPage } from 'next';
 import Post from '../domain/post/PostEntity';
 import { PostApplicationService } from '../application/PostApplicationService';
+import { Title } from '../presentation/components/Title';
 
 interface Props {
   items: Post[];
@@ -11,7 +12,7 @@ interface Props {
 
 const Index: NextPage<Props> = ({ items }) => (
   <Layout>
-    <p>Posts</p>
+    <Title text="Posts" />
     <ul>
       {items.map(({ slug, title }) => (
         <li key={slug}>

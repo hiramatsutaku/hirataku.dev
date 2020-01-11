@@ -5,9 +5,11 @@ import styled from 'styled-components';
 import { Footer } from './Footer';
 
 const Wrapper = styled.div`
-  margin: 10px;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  box-sizing: border-box;
   font-family: 'Lato', 'M PLUS Rounded 1c', sans-serif;
+  max-width: 800px;
 `;
 
 interface Props {
@@ -26,7 +28,7 @@ export const Layout: React.FC<Props> = ({ children, description = 'blog.taku.dev
       />
     </Head>
     <Header />
-    {children}
+    <main>{children}</main>
     <Footer />
   </Wrapper>
 );
