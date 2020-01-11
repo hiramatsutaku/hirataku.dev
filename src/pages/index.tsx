@@ -16,7 +16,7 @@ const Index: NextPage<Props> = ({ items }) => (
     <ul>
       {items.map(({ slug, title }) => (
         <li key={slug}>
-          <Link href={`/posts/[postId]`} as={`/posts/${slug}`}>
+          <Link href={`/posts/[slug]`} as={`/posts/${slug}`}>
             <a>{title}</a>
           </Link>
         </li>
