@@ -1,24 +1,24 @@
-name: now deploy preview
-on:
-  push:
-    branches:
-      - master
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: amondnet/now-deployment@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          zeit-token: ${{ secrets.ZEIT_TOKEN }}
-          now-args: '--prod -n ${{ secrets.STG_NOW_PROJECT_NAME }} -b CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} -b CONTENTFUL_PREVIEW_ACCESS_TOKEN=${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}'
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@master
-        env:
-          SLACK_CHANNEL: blog-taku-dev
-          SLACK_USERNAME: zeit
-          SLACK_ICON: https://github.com/zeit?size=48
-          SLACK_MESSAGE: 'https://stg-blog-taku-dev.now.sh/ :rocket:'
-          SLACK_TITLE: Staging URL
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+# name: now deploy preview
+# on:
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v1
+#       - uses: amondnet/now-deployment@v1
+#         with:
+#           github-token: ${{ secrets.GITHUB_TOKEN }}
+#           zeit-token: ${{ secrets.ZEIT_TOKEN }}
+#           now-args: '--prod -n ${{ secrets.STG_NOW_PROJECT_NAME }} -b CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} -b CONTENTFUL_PREVIEW_ACCESS_TOKEN=${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}'
+#       - name: Slack Notification
+#         uses: rtCamp/action-slack-notify@master
+#         env:
+#           SLACK_CHANNEL: blog-taku-dev
+#           SLACK_USERNAME: zeit
+#           SLACK_ICON: https://github.com/zeit?size=48
+#           SLACK_MESSAGE: 'https://stg-blog-taku-dev.now.sh/ :rocket:'
+#           SLACK_TITLE: Staging URL
+#           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
