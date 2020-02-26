@@ -1,20 +1,20 @@
-# name: now deploy preview
-# on: [pull_request]
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v1
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: '13.5.0'
-#       - id: deploy-preview
-#         uses: amondnet/now-deployment@v1
-#         with:
-#           github-token: ${{ secrets.GITHUB_TOKEN }}
-#           zeit-token: ${{ secrets.ZEIT_TOKEN }}
-#           now-args: '-n ${{ secrets.STG_NOW_PROJECT_NAME }} -b CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} -b CONTENTFUL_PREVIEW_ACCESS_TOKEN=${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}'
-#       - name: run Lighthouse CI
-#         run: |
-#           npm install -g @lhci/cli@0.3.x
-#           lhci autorun --collect.url=${{ steps.deploy-preview.outputs.preview-url }} --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }} || echo "LHCI failed!"
+name: now deploy preview
+on: [pull_request]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '13.5.0'
+      - id: deploy-preview
+        uses: amondnet/now-deployment@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          zeit-token: ${{ secrets.ZEIT_TOKEN }}
+          now-args: '-n ${{ secrets.STG_NOW_PROJECT_NAME }} -b CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} -b CONTENTFUL_PREVIEW_ACCESS_TOKEN=${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}'
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.3.x
+          lhci autorun --collect.url=${{ steps.deploy-preview.outputs.preview-url }} --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }} || echo "LHCI failed!"
