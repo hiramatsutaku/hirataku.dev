@@ -9,6 +9,7 @@ import styled from 'styled-components';
 
 const Li = styled.li`
   padding: 2px;
+  font-size: 1.3rem;
 `;
 
 interface Props {
