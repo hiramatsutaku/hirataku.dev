@@ -10,6 +10,6 @@ module.exports = withBundleAnalyzer(
       CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
       CONTENTFUL_PREVIEW_ACCESS_TOKEN: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
     },
-    pageExtensions: ['mdx'],
+    pageExtensions: ['tsx', 'mdx'],
   }),
 );
