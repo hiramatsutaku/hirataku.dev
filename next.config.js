@@ -12,5 +12,11 @@ module.exports = withBundleAnalyzer(
       config.resolve.extensions.push('.mdx');
       return config;
     },
+    exportTrailingSlash: true,
+    exportPathMap: function() {
+      return {
+        '/': { page: '/' },
+      };
+    },
   }),
 );

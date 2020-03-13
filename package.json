@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "deploy:stg": "NOW_PROJECT_ID=$STG_NOW_PROJECT_ID now --prod",
     "deploy:prod": "now --prod -b",
