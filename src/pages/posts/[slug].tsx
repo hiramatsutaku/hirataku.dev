@@ -1,11 +1,11 @@
 import React from 'react';
 import { Layout } from '../../presentation/components/Layout';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
-import PostEntity from '../../domain/post/PostEntity';
+import { PostFields } from '../../domain/post/PostEntity';
 import { PostApplicationService } from '../../application/PostApplicationService';
 import { Post } from '../../presentation/components/Post';
 
-type Props = Pick<PostEntity, 'title' | 'slug'>;
+type Props = PostFields;
 
 const PostPage: NextPage<Props> = post => {
   return (
