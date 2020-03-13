@@ -1,4 +1,4 @@
-import PostEntity from './PostEntity';
+import { PostEntity } from './PostEntity';
 
 describe('create instance', () => {
   test('success', () => {

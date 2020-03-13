@@ -1,9 +1,9 @@
 import path from 'path';
-import Post, { PostFields } from '../../domain/post/PostEntity';
+import { PostEntity, PostFields } from '../../domain/post/PostEntity';
 import { IPostRepository } from '../../domain/post/IPostRepository';
 
 export class PostRepository implements IPostRepository {
-  async getPosts(): Promise<Post[]> {
+  async getPosts(): Promise<PostEntity[]> {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const fs = require('fs-extra');
     const fileNames: string[] = await fs.readdir(
@@ -15,11 +15,11 @@ export class PostRepository implements IPostRepository {
         return meta;
       }),
     );
-    return metas.map(meta => new Post(meta));
+    return metas.map(meta => new PostEntity(meta));
   }
 
-  async getPostBySlug(slug: PostFields['slug']): Promise<Post> {
+  async getPostBySlug(slug: PostFields['slug']): Promise<PostEntity> {
     const { meta } = await import(`../../posts/${slug}`);
-    return new Post(meta);
+    return new PostEntity(meta);
   }
 }
