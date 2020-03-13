@@ -7,7 +7,6 @@ export class PostRepository implements IPostRepository {
     const fs = require('fs-extra');
     // TODO: path
     const files: string[] = await fs.readdir('./src/posts/');
-    // eslint-disable-next-line no-undef
     const metas = await Promise.all(
       files.map(async file => {
         // TODO: path

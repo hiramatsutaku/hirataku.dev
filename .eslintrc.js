@@ -1,5 +1,5 @@
 module.exports = {
-  env: { node: true, browser: true },
+  env: { node: true, browser: true, es6: true },
   plugins: ['react-hooks'],
   extends: [
     'eslint:recommended',
