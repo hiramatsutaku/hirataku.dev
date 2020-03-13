@@ -15,7 +15,6 @@ jobs:
           zeit-token: ${{ secrets.ZEIT_TOKEN }}
           now-org-id: ${{ secrets.NOW_ORG_ID }}
           now-project-id: ${{ secrets.STG_NOW_PROJECT_ID }}
-          now-args: '-b CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} -b CONTENTFUL_PREVIEW_ACCESS_TOKEN=${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}'
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.3.x
