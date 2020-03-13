@@ -6,6 +6,7 @@ import { PostFields } from '../domain/post/PostEntity';
 import { PostApplicationService } from '../application/PostApplicationService';
 import { Title } from '../presentation/components/Title';
 import styled from 'styled-components';
+import { PostRepository } from '../infrastructure/repositories/PostRepository';
 
 const Li = styled.li`
   padding: 2px;
@@ -32,7 +33,8 @@ const Index: NextPage<Props> = ({ items }) => (
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  const service = new PostApplicationService();
+  const postRepository = new PostRepository();
+  const service = new PostApplicationService(postRepository);
   const posts = await service.getPosts();
   return {
     props: { items: posts.map(post => ({ ...post })) },

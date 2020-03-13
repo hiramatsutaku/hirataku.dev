@@ -3,7 +3,7 @@ export interface PostFields {
   title: string;
 }
 
-export default class PostEntity implements PostFields {
+export class PostEntity implements PostFields {
   readonly slug: string;
   readonly title: string;
 

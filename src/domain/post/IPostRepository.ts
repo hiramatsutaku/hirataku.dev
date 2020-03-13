@@ -1,6 +1,6 @@
-import Post, { PostFields } from './PostEntity';
+import { PostEntity, PostFields } from './PostEntity';
 
 export interface IPostRepository {
-  getPosts: () => Promise<Post[]>;
-  getPostBySlug: (slug: PostFields['slug']) => Promise<Post>;
+  getPosts: () => Promise<PostEntity[]>;
+  getPostBySlug: (slug: PostFields['slug']) => Promise<PostEntity>;
 }

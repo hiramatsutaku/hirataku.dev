@@ -1,6 +1,6 @@
 import React from 'react';
 import { Post } from './Post';
-import PostEntity from '../../domain/post/PostEntity';
+import { PostEntity } from '../../domain/post/PostEntity';
 
 const post = new PostEntity({ slug: 'hogehoge', title: 'タイトル' });
 
