@@ -18,8 +18,7 @@ export class PostRepository implements IPostRepository {
   }
 
   async getPostBySlug(slug: PostFields['slug']): Promise<Post> {
-    // TODO: 拡張子を省略できるように
-    const { meta } = await import(`../../posts/${slug}.mdx`);
+    const { meta } = await import(`../../posts/${slug}`);
     return new Post(meta);
   }
 }

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 export const Post: React.FC<{ post: IPostEntity }> = ({ post }) => {
-  const MdxComponent = dynamic(() => import(`../../posts/${post.slug}.mdx`));
+  const MdxComponent = dynamic(() => import(`../../posts/${post.slug}`));
   return (
     <Wrapper>
       <Title text={post.title} />

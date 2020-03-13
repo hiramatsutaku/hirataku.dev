@@ -6,6 +6,9 @@ const withMDX = require('@next/mdx')();
 module.exports = withBundleAnalyzer(
   withMDX({
     env: {},
-    pageExtensions: ['tsx', 'mdx'],
+    webpack(config, options) {
+      config.resolve.extensions.push('.mdx');
+      return config;
+    },
   }),
 );
