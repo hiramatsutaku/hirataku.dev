@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from '../presentation/components/Layout';
 import Link from 'next/link';
-import { NextPage } from 'next';
+import { NextPage, GetStaticProps } from 'next';
 import Post from '../domain/post/PostEntity';
 import { PostApplicationService } from '../application/PostApplicationService';
 import { Title } from '../presentation/components/Title';
@@ -13,7 +13,7 @@ const Li = styled.li`
 `;
 
 interface Props {
-  items: Post[];
+  items: Pick<Post, 'slug' | 'title'>[];
 }
 
 const Index: NextPage<Props> = ({ items }) => (
@@ -31,11 +31,11 @@ const Index: NextPage<Props> = ({ items }) => (
   </Layout>
 );
 
-Index.getInitialProps = async (): Promise<Props> => {
+export const getStaticProps: GetStaticProps = async () => {
   const service = new PostApplicationService();
   const posts = await service.getPosts();
   return {
-    items: posts,
+    props: { items: posts.map(post => ({ ...post })) },
   };
 };
 
