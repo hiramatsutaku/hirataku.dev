@@ -13,10 +13,12 @@ module.exports = withBundleAnalyzer(
       return config;
     },
     exportTrailingSlash: true,
-    exportPathMap: function() {
-      return {
+    exportPathMap: async function() {
+      const paths = {
         '/': { page: '/' },
+        '/about': { page: '/about' },
       };
+      return paths;
     },
   }),
 );
