@@ -5,7 +5,9 @@ const withMDX = require('@next/mdx')();
 
 module.exports = withBundleAnalyzer(
   withMDX({
-    env: {},
+    env: {
+      ROOT: __dirname,
+    },
     webpack(config, options) {
       config.resolve.extensions.push('.mdx');
       return config;
