@@ -1,6 +1,5 @@
 import { PostEntity, PostFields } from '../domain/post/PostEntity';
 import { IPostRepository } from '../domain/post/IPostRepository';
-import { PostRepository } from '../infrastructure/repositories/PostRepository';
 
 interface IPostApplicationService {
   getPosts: () => Promise<PostEntity[]>;
@@ -10,8 +9,8 @@ interface IPostApplicationService {
 export class PostApplicationService implements IPostApplicationService {
   private postRepository: IPostRepository;
 
-  constructor() {
-    this.postRepository = new PostRepository();
+  constructor(postRepository: IPostRepository) {
+    this.postRepository = postRepository;
   }
 
   async getPosts(): Promise<PostEntity[]> {
