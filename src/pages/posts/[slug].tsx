@@ -1,27 +1,38 @@
 import React from 'react';
 import { Layout } from '../../presentation/components/Layout';
-import { NextPageContext, NextPage } from 'next';
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import PostEntity from '../../domain/post/PostEntity';
 import { PostApplicationService } from '../../application/PostApplicationService';
 import { Post } from '../../presentation/components/Post';
 
-interface Props {
-  item: PostEntity;
-}
+type Props = Pick<PostEntity, 'title' | 'slug'>;
 
-const PostPage: NextPage<Props> = ({ item }) => {
+const PostPage: NextPage<Props> = post => {
   return (
-    <Layout description={item.title}>
-      <Post post={item} />
+    <Layout description={post.title}>
+      <Post post={post} />
     </Layout>
   );
 };
 
-PostPage.getInitialProps = async (context: NextPageContext): Promise<Props> => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const service = new PostApplicationService();
-  const entry = await service.getPostBySlug(context.query.slug as string);
+  const posts = await service.getPosts();
   return {
-    item: entry,
+    paths: posts.map(post => `/posts/${post.slug}`),
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug;
+  if (typeof slug !== 'string') {
+    throw new Error('slug does not be defined.');
+  }
+  const service = new PostApplicationService();
+  const entry = await service.getPostBySlug(slug);
+  return {
+    props: { ...entry },
   };
 };
 
