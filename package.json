@@ -16,7 +16,8 @@
     "lint": "npm-run-all -p lint:*",
     "lint:es": "eslint . --ext .js,.ts,.tsx --cache",
     "lint:style": "stylelint \"src/**/*.tsx\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "next": "^9.3.0",
