@@ -1,24 +1,25 @@
-/* eslint-disable @typescript-eslint/camelcase */
-import { client } from './contentful';
 import Post, { PostFields } from '../../domain/post/PostEntity';
 import { IPostRepository } from '../../domain/post/IPostRepository';
 
-const POST_CONTENT_TYPE = 'post';
-
 export class PostRepository implements IPostRepository {
   async getPosts(): Promise<Post[]> {
-    const entries = await client.getEntries<PostFields>({
-      content_type: POST_CONTENT_TYPE,
-    });
-    return entries.items.map(item => new Post(item.fields));
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const fs = require('fs-extra');
+    // TODO: path
+    const files: string[] = await fs.readdir('./src/posts/');
+    const metas = await Promise.all(
+      files.map(async file => {
+        // TODO: path
+        const { meta } = await import(`../../posts/${file}`);
+        return meta;
+      }),
+    );
+    return metas.map(meta => new Post(meta));
   }
 
   async getPostBySlug(slug: PostFields['slug']): Promise<Post> {
-    const entries = await client.getEntries<PostFields>({
-      content_type: POST_CONTENT_TYPE,
-      limit: 1,
-      'fields.slug': slug,
-    });
-    return new Post(entries.items[0].fields);
+    // TODO: 拡張子を省略できるように
+    const { meta } = await import(`../../posts/${slug}.mdx`);
+    return new Post(meta);
   }
 }

@@ -6,8 +6,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy:stg": "NOW_PROJECT_ID=$STG_NOW_PROJECT_ID now --prod -b CONTENTFUL_SPACE_ID=$CONTENTFUL_SPACE_ID -b CONTENTFUL_PREVIEW_ACCESS_TOKEN=$CONTENTFUL_PREVIEW_ACCESS_TOKEN",
-    "deploy:prod": "now --prod -b CONTENTFUL_SPACE_ID=$CONTENTFUL_SPACE_ID -b CONTENTFUL_ACCESS_TOKEN=$CONTENTFUL_ACCESS_TOKEN",
+    "deploy:stg": "NOW_PROJECT_ID=$STG_NOW_PROJECT_ID now --prod",
+    "deploy:prod": "now --prod -b",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
@@ -19,11 +19,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "contentful": "^7.13.1",
     "next": "^9.3.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-markdown": "^4.3.1",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
@@ -32,7 +30,7 @@
     "@next/bundle-analyzer": "^9.3.0",
     "@next/mdx": "^9.3.0",
     "@storybook/react": "^5.2.8",
-    "@types/node": "^13.9.0",
+    "@types/node": "^13.9.1",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/styled-components": "^5.0.1",
