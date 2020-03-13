@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout } from '../presentation/components/Layout';
 import Link from 'next/link';
 import { NextPage, GetStaticProps } from 'next';
-import Post from '../domain/post/PostEntity';
+import { PostFields } from '../domain/post/PostEntity';
 import { PostApplicationService } from '../application/PostApplicationService';
 import { Title } from '../presentation/components/Title';
 import styled from 'styled-components';
@@ -13,7 +13,7 @@ const Li = styled.li`
 `;
 
 interface Props {
-  items: Pick<Post, 'slug' | 'title'>[];
+  items: PostFields[];
 }
 
 const Index: NextPage<Props> = ({ items }) => (
