@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Footer Default Story 1`] = `
+<footer
+  className="Footer__Wrapper-ia9i2h-0 fNoNWo"
+>
+  <small>
+    2020©hirataku
+  </small>
+</footer>
+`;
+
+exports[`Storyshots Header Default Story 1`] = `
+<header
+  className="Header__Wrapper-p6l3ns-0 jOPKwh"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    blog.taku.dev
+  </a>
+  <nav>
+    <ul
+      className="Header__MenuList-p6l3ns-1 eRtWGn"
+    >
+      <li
+        className="Header__MenuListItem-p6l3ns-2 hLwYta"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li
+        className="Header__MenuListItem-p6l3ns-2 hLwYta"
+      >
+        <a
+          href="/about"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
+
+exports[`Storyshots Post Default Story 1`] = `
+<div
+  className="Post__Wrapper-pt7guj-0 kXlZIO"
+>
+  <h1
+    className="Title__H1-tpkuqb-0 hUiFWd"
+  >
+    タイトル
+  </h1>
+</div>
+`;
+
+exports[`Storyshots Title Default Story 1`] = `
+<h1
+  className="Title__H1-tpkuqb-0 hUiFWd"
+>
+  タイトル
+</h1>
+`;
