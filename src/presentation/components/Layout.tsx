@@ -8,7 +8,6 @@ import { GlobalStyle } from './GlobalStyle';
 const Wrapper = styled.div`
   margin: 0 auto;
   padding: 20px 16px;
-  box-sizing: border-box;
   max-width: 800px;
 `;
 
