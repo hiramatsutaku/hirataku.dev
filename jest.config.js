@@ -8,9 +8,7 @@ module.exports = {
     'ts-jest': {
       diagnostics: false,
       tsConfig: './tsconfig.test.json',
-      babelConfig: {
-        plugins: ['require-context-hook'],
-      },
+      babelConfig: './.jest/babel.config.json',
     },
   },
   setupFiles: ['<rootDir>/.jest/register-context.ts'],
