@@ -19,8 +19,6 @@ interface Props {
 export const Layout: React.FC<Props> = ({ children, description = 'blog.taku.dev' }) => (
   <Wrapper>
     <Head>
-      <title>blog.taku.dev</title>
-      <meta charSet="utf-8" />
       <meta name="description" content={description} />
     </Head>
     <Header />
