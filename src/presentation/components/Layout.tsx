@@ -3,12 +3,12 @@ import Head from 'next/head';
 import { Header } from './Header';
 import styled from 'styled-components';
 import { Footer } from './Footer';
+import { GlobalStyle } from './GlobalStyle';
 
 const Wrapper = styled.div`
   margin: 0 auto;
   padding: 20px 16px;
   box-sizing: border-box;
-  font-family: 'Lato', 'M PLUS Rounded 1c', sans-serif;
   max-width: 800px;
 `;
 
@@ -28,6 +28,7 @@ export const Layout: React.FC<Props> = ({ children, description = 'blog.taku.dev
       />
     </Head>
     <Header />
+    <GlobalStyle />
     <main>{children}</main>
     <Footer />
   </Wrapper>
