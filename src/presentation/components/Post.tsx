@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 export const Post: React.FC<{ post: PostEntity }> = ({ post }) => {
-  const MdxComponent = dynamic(() => import(`../../posts/${post.slug}`));
+  const MdxComponent = dynamic(() => import(`../../posts/${post.date}`));
   return (
     <Wrapper>
       <MdxComponent />

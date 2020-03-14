@@ -26,8 +26,8 @@ export class PostRepository implements IPostRepository {
     return metas.map(meta => new PostEntity(meta));
   }
 
-  async getPostBySlug(slug: PostFields['slug']): Promise<PostEntity> {
-    const { meta } = await import(`../../posts/${slug}`);
+  async getPostByDate(date: PostFields['date']): Promise<PostEntity> {
+    const { meta } = await import(`../../posts/${date}`);
     return new PostEntity(meta);
   }
 }

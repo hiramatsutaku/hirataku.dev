@@ -6,20 +6,20 @@ describe('PostApplicationService', () => {
     ReturnType<IPostRepository['getPosts']>,
     Parameters<IPostRepository['getPosts']>
   >;
-  let getPostBySlugMock: jest.MockInstance<
-    ReturnType<IPostRepository['getPostBySlug']>,
-    Parameters<IPostRepository['getPostBySlug']>
+  let getPostByDateMock: jest.MockInstance<
+    ReturnType<IPostRepository['getPostByDate']>,
+    Parameters<IPostRepository['getPostByDate']>
   >;
   let applicationService: PostApplicationService;
-  const slug = 'sample-slug';
+  const date = 'sample-date';
 
   beforeEach(async () => {
     getPostsMock = jest.fn();
-    getPostBySlugMock = jest.fn();
+    getPostByDateMock = jest.fn();
     const MockPostRepository = jest.fn();
     MockPostRepository.mockImplementation(() => ({
       getPosts: getPostsMock,
-      getPostBySlug: getPostBySlugMock,
+      getPostByDate: getPostByDateMock,
     }));
     applicationService = new PostApplicationService(new MockPostRepository() as never);
   });
@@ -29,10 +29,10 @@ describe('PostApplicationService', () => {
       await applicationService.getPosts();
       expect(getPostsMock.mock.calls[0]).not.toBeUndefined();
     });
-    test('getPostBySlug', async () => {
-      await applicationService.getPostBySlug(slug);
-      expect(getPostBySlugMock.mock.calls[0]).not.toBeUndefined();
-      expect(getPostBySlugMock.mock.calls[0][0]).toBe(slug);
+    test('getPostByDate', async () => {
+      await applicationService.getPostByDate(date);
+      expect(getPostByDateMock.mock.calls[0]).not.toBeUndefined();
+      expect(getPostByDateMock.mock.calls[0][0]).toBe(date);
     });
   });
 });

@@ -21,19 +21,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const service = new PostApplicationService(postRepository);
   const posts = await service.getPosts();
   return {
-    paths: posts.map(post => `/posts/${post.slug}`),
+    paths: posts.map(post => `/posts/${post.date}`),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug;
-  if (typeof slug !== 'string') {
-    throw new Error('slug does not be defined.');
+  const date = params?.date;
+  if (typeof date !== 'string') {
+    throw new Error('date does not be defined.');
   }
   const postRepository = new PostRepository();
   const service = new PostApplicationService(postRepository);
-  const entry = await service.getPostBySlug(slug);
+  const entry = await service.getPostByDate(date);
   return {
     props: { ...entry },
   };
