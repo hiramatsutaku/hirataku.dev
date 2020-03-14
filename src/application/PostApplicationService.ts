@@ -3,7 +3,7 @@ import { IPostRepository } from '../domain/post/IPostRepository';
 
 interface IPostApplicationService {
   getPosts: () => Promise<PostEntity[]>;
-  getPostBySlug: (slug: PostFields['slug']) => Promise<PostEntity>;
+  getPostByDate: (date: PostFields['date']) => Promise<PostEntity>;
 }
 
 export class PostApplicationService implements IPostApplicationService {
@@ -17,7 +17,7 @@ export class PostApplicationService implements IPostApplicationService {
     return await this.postRepository.getPosts();
   }
 
-  async getPostBySlug(slug: PostFields['slug']): Promise<PostEntity> {
-    return await this.postRepository.getPostBySlug(slug);
+  async getPostByDate(date: PostFields['date']): Promise<PostEntity> {
+    return await this.postRepository.getPostByDate(date);
   }
 }

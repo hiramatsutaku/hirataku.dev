@@ -1,14 +1,14 @@
 export interface PostFields {
-  slug: string;
+  date: string;
   title: string;
 }
 
 export class PostEntity implements PostFields {
-  readonly slug: string;
+  readonly date: string;
   readonly title: string;
 
-  constructor({ slug, title }: PostFields) {
-    this.slug = slug;
+  constructor({ date, title }: PostFields) {
+    this.date = date;
     this.title = title;
   }
 }

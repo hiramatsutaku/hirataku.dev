@@ -55,13 +55,7 @@ exports[`Storyshots Header Default Story 1`] = `
 exports[`Storyshots Post Default Story 1`] = `
 <div
   className="Post__Wrapper-pt7guj-0 kXlZIO"
->
-  <h1
-    className="Title__H1-tpkuqb-0 hUiFWd"
-  >
-    タイトル
-  </h1>
-</div>
+/>
 `;
 
 exports[`Storyshots Title Default Story 1`] = `

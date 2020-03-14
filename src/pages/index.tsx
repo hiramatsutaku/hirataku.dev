@@ -21,9 +21,9 @@ const Index: NextPage<Props> = ({ items }) => (
   <Layout>
     <Title text="Posts" />
     <ul>
-      {items.map(({ slug, title }) => (
-        <Li key={slug}>
-          <Link href={`/posts/[slug]`} as={`/posts/${slug}`}>
+      {items.map(({ date, title }) => (
+        <Li key={date}>
+          <Link href={`/posts/[date]`} as={`/posts/${date}`}>
             <a>{title}</a>
           </Link>
         </Li>

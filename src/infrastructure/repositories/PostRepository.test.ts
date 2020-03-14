@@ -5,7 +5,7 @@ describe.skip('PostRepository', () => {
   test('getPosts', async () => {
     const repo = new PostRepository(path.resolve(__dirname, '../../posts/'));
     const posts = await repo.getPosts();
-    expect(posts).toContainEqual({ slug: 'mdx-sample' });
+    expect(posts).toContainEqual({ date: '20200315' });
   });
-  test.skip('getPostBySlug');
+  test.skip('getPostByDate');
 });
