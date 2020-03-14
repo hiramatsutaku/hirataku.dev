@@ -22,10 +22,6 @@ export const Layout: React.FC<Props> = ({ children, description = 'blog.taku.dev
       <title>blog.taku.dev</title>
       <meta charSet="utf-8" />
       <meta name="description" content={description} />
-      <link
-        href="https://fonts.googleapis.com/css?family=Lato:400,700|M+PLUS+Rounded+1c:400,700&display=swap"
-        rel="stylesheet"
-      />
     </Head>
     <Header />
     <GlobalStyle />
