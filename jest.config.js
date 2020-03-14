@@ -12,4 +12,5 @@ module.exports = {
     },
   },
   setupFiles: ['<rootDir>/.jest/register-context.ts'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/preload-dynamic-imports.ts'],
 };
