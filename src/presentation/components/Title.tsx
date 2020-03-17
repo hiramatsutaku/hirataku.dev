@@ -5,8 +5,4 @@ const H1 = styled.h1`
   font-weight: 'bold';
 `;
 
-interface Props {
-  text: string;
-}
-
-export const Title: React.FC<Props> = ({ text }) => <H1>{text}</H1>;
+export const Title: React.FC = ({ children }) => <H1>{children}</H1>;

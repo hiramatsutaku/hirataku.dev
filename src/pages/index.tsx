@@ -9,8 +9,12 @@ import styled from 'styled-components';
 import { PostRepository } from '../infrastructure/repositories/PostRepository';
 
 const Li = styled.li`
-  padding: 2px;
+  margin-top: 16px;
   font-size: 1.3rem;
+
+  :first-child {
+    margin-top: 0;
+  }
 `;
 
 interface Props {
@@ -19,12 +23,14 @@ interface Props {
 
 const Index: NextPage<Props> = ({ items }) => (
   <Layout>
-    <Title text="Posts" />
+    <Title>Posts</Title>
     <ul>
       {items.map(({ date, title }) => (
         <Li key={date}>
           <Link href={`/posts/[date]`} as={`/posts/${date}`}>
-            <a>{title}</a>
+            <a>
+              {date} {title}
+            </a>
           </Link>
         </Li>
       ))}
@@ -37,7 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const service = new PostApplicationService(postRepository);
   const posts = await service.getPosts();
   return {
-    props: { items: posts.map(post => ({ ...post })) },
+    props: { items: posts.map(post => ({ ...post })).reverse() },
   };
 };
 
