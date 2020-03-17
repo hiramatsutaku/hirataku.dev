@@ -19,7 +19,7 @@ interface Props {
 
 const Index: NextPage<Props> = ({ items }) => (
   <Layout>
-    <Title text="Posts" />
+    <Title>Posts</Title>
     <ul>
       {items.map(({ date, title }) => (
         <Li key={date}>
