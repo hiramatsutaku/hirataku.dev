@@ -20,7 +20,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@mdx-js/react": "^1.5.7",
     "next": "^9.3.0",
+    "prism-react-renderer": "^1.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "styled-components": "^4.4.1",
@@ -34,6 +36,7 @@
     "@storybook/addon-storyshots": "^5.3.17",
     "@storybook/react": "^5.3.17",
     "@types/jest": "^25.1.4",
+    "@types/mdx-js__react": "^1.5.1",
     "@types/node": "^13.9.1",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
