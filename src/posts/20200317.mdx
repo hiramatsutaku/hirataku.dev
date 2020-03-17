@@ -1,0 +1,36 @@
+export const meta = {
+  date: '20200317',
+  title: 'styled-components の createGlobalStyle に prettier が効かない',
+};
+
+# styled-components の createGlobalStyle に prettier が効かない
+
+このブログは [styled-components](https://github.com/styled-components/styled-components) を使っています。開発では、[stylelint](https://github.com/stylelint/stylelint) で CSS の Lint を行い、[prettier](https://github.com/prettier/prettier) で CSS のフォーマットを行っています。
+
+今回の記事では、styled-components の createGlobalStyle を使って CSS を書いた際に prettier が効かない問題の workaround を紹介したいと思います。
+
+## 関連する Issue
+
+prettier のリポジトリで同様の問題が報告されていました。
+
+https://github.com/prettier/prettier/issues/5386
+
+Issue を遡ると、styled-components 特有のタグはサポートしない方針になっていました。
+
+https://github.com/prettier/prettier/pull/2337#issuecomment-311803127
+
+## workaround
+
+`css` タグはサポートされているので、
+
+```tsx
+const globalCss = css`
+  ...;
+`;
+
+export const GlobalStyle = createGlobalStyle`
+  ${globalCss}
+`;
+```
+
+のようにすると、 `css` タグで書いた部分の CSS には prettier が効くので開発は捗ります。
