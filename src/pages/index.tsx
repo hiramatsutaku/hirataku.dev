@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const service = new PostApplicationService(postRepository);
   const posts = await service.getPosts();
   return {
-    props: { items: posts.map(post => ({ ...post })) },
+    props: { items: posts.map(post => ({ ...post })).reverse() },
   };
 };
 
