@@ -1,0 +1,93 @@
+export const meta = {
+  date: '20200316',
+  title: 'Next.js でブログ構築 - prism の導入',
+};
+
+# Next.js でブログ構築 - prism の導入
+
+コードブロックにシンタックスハイライトが効くよう [prism](https://github.com/PrismJS/prism) を導入します。
+
+[MDX のドキュメント](https://mdxjs.com/guides/syntax-highlighting)でシンタックスハイライトについては以下の二つのアプローチがあると紹介されています。
+
+- composition via the MDXProvider
+- remark plugin
+
+どちらのアプローチを利用するかですが、
+
+> It’s typically preferred to take the compositional approach
+
+とあるので、今回は
+
+> - composition via the MDXProvider
+
+を採用します。なぜこちらのアプローチの方が好ましいかは別の記事にしたいと思います。
+
+## prism 導入
+
+https://mdxjs.com/guides/syntax-highlighting#composition
+
+を参考にして進めます。
+
+### 必要なパッケージのインストール
+
+まず、必要なパッケージをインストールします。
+
+```shell
+yarn add @mdx-js/react prism-react-renderer
+yarn add -D @types/mdx-js__react
+```
+
+### コードブロック用コンポーネントの作成
+
+続いて、MDXProvider の components props で利用するコードブロック用コンポーネントを作成します。
+components props の型定義は、以下のようになっています。
+
+```typescript
+interface MDXProviderComponents {
+  ...
+  code?: ComponentType<any>;
+  ...
+}
+```
+
+追加するコードブロックコンポーネントは以下のようになります。
+
+```tsx
+import React, { HTMLAttributes } from 'react';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+
+export const CodeBlock: React.FC<HTMLAttributes<HTMLDivElement>> = ({ children, className }) => {
+  const language = className?.replace(/language-/, '');
+  return (
+    <Highlight {...defaultProps} code={children as string} language={language as Language}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className} style={{ ...style, padding: '20px' }}>
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span key={key} {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  );
+};
+```
+
+### MDXProvider の追加
+
+続いて、`src/_app.tsx` に MDXProvider を追加します。
+
+```tsx
+<MDXProvider
+  components={{
+    code: CodeBlock,
+  }}
+>
+  <Component {...pageProps} />
+</MDXProvider>
+```
+
+これでシンタックスハイライトが効くようになりました。
