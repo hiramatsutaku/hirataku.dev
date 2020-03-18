@@ -1,0 +1,38 @@
+export const meta = {
+  date: '20200318',
+  title: 'Next.js でブログ構築 - robots.txt の追加',
+};
+
+# Next.js でブログ構築 - robots.txt の追加
+
+今回の記事では、Next.js で robots.txt を追加する方法を紹介します。
+
+## public ディレクトリを利用する
+
+Next.js 9.1 から `public` ディレクトリがサポートされるようになりました。
+
+https://nextjs.org/blog/next-9-1
+
+> public Directory Support: Define files to be mounted at the root of your application's URL (e.g. favicon.ico).
+
+`public` ディレクトリに置いたファイルは、ビルド後にアプリケーションのルートに配置されます。
+
+ですので、`robots.txt` は `public` ディレクトリに置くようにします。
+
+## 環境ごとに robots.txt を分ける
+
+このブログではステージング環境と本番環境があるので、環境ごとに robots.txt を分けたくなりました。
+
+このブログでは npm-scripts で実現しています。
+
+デプロイ前に `public` ディレクトリを生成し、
+
+```json
+    "predeploy:stg": "cpx -C deployment/stg/public/* public",
+    "predeploy:prod": "cpx -C deployment/prod/public/* public",
+    "postdeploy:stg": "rimraf public",
+    "posteploy:prod": "rimraf public",
+```
+
+デプロイ後に `public` ディレクトリを削除する方法をとっています。
+ファイルのコピーとディレクトリの削除には、[cpx](https://github.com/mysticatea/cpx) と [rimraf](https://github.com/isaacs/rimraf) を使っています。
