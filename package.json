@@ -11,7 +11,7 @@
     "deploy:stg": "NOW_PROJECT_ID=$STG_NOW_PROJECT_ID now --prod",
     "deploy:prod": "now --prod",
     "postdeploy:stg": "rimraf public",
-    "posteploy:prod": "rimraf public",
+    "postdeploy:prod": "rimraf public",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
