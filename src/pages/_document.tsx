@@ -42,6 +42,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Lato:400,700|M+PLUS+Rounded+1c:400,700&display=swap"
             rel="stylesheet"
           />
+          <script async src="//cdn.iframe.ly/embed.js" charSet="utf-8"></script>
         </Head>
         <body>
           <Main />
