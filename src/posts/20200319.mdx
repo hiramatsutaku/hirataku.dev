@@ -1,0 +1,20 @@
+import { Iframely } from '../presentation/components/Iframely';
+
+export const meta = {
+  date: '20200319',
+  title: 'Next.js でブログ構築 - iframely の導入',
+};
+
+# Next.js でブログ構築 - iframely の導入
+
+今回の記事では、Next.js で [iframely](https://iframely.com/) を導入する方法を紹介します。
+
+## embed.js を読み込む
+
+今回は一度読み込めば良いので、`src/_document.tsx` に以下のコードを追加します。
+
+```tsx
+<script async src="//cdn.iframe.ly/embed.js" charSet="utf-8"></script>
+```
+
+<Iframely href="https://iframely.com/" iframelyUrl="//cdn.iframe.ly/KGpjY3" />
