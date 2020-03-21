@@ -1,8 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Footer Default Story 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
 <footer
-  className="Footer__Wrapper-ia9i2h-0 fNoNWo"
+  className="c0"
 >
   <small>
     2020©hirataku
@@ -11,8 +27,39 @@ exports[`Storyshots Footer Default Story 1`] = `
 `;
 
 exports[`Storyshots Header Default Story 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.c2 {
+  margin-left: 1em;
+}
+
 <header
-  className="Header__Wrapper-p6l3ns-0 jOPKwh"
+  className="c0"
 >
   <a
     href="/"
@@ -23,10 +70,10 @@ exports[`Storyshots Header Default Story 1`] = `
   </a>
   <nav>
     <ul
-      className="Header__MenuList-p6l3ns-1 eRtWGn"
+      className="c1"
     >
       <li
-        className="Header__MenuListItem-p6l3ns-2 hLwYta"
+        className="c2"
       >
         <a
           href="/"
@@ -37,7 +84,7 @@ exports[`Storyshots Header Default Story 1`] = `
         </a>
       </li>
       <li
-        className="Header__MenuListItem-p6l3ns-2 hLwYta"
+        className="c2"
       >
         <a
           href="/about"
@@ -53,14 +100,22 @@ exports[`Storyshots Header Default Story 1`] = `
 `;
 
 exports[`Storyshots Post Default Story 1`] = `
+.c0 {
+  padding: 0;
+}
+
 <div
-  className="Post__Wrapper-pt7guj-0 kXlZIO"
+  className="c0"
 />
 `;
 
 exports[`Storyshots Title Default Story 1`] = `
+.c0 {
+  font-weight: 'bold';
+}
+
 <h1
-  className="Title__H1-tpkuqb-0 hUiFWd"
+  className="c0"
 >
   タイトル
 </h1>
