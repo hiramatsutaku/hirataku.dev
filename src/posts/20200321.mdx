@@ -1,0 +1,122 @@
+export const meta = {
+  date: '20200321',
+  title: 'TypeScript + styled-components のプロジェクトへの Storyshots の導入',
+};
+
+# TypeScript + styled-components のプロジェクトへの Storyshots の導入
+
+今回の記事では、TypeScript、[styled-components](https://github.com/styled-components/styled-components) を利用したプロジェクトへの [Storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core) の導入について書きます。
+
+利用する各種ライブラリのバージョンは以下のようになっています。
+
+- TypeScript: `3.8.3`
+- styled-components: `5.0.1`
+- @storybook/react": `5.3.17`
+- @storybook/addon-storyshots: `5.3.17`
+
+Storybook 5.3 から Storyshots の設定が簡単になりました。
+
+https://medium.com/storybookjs/declarative-storybook-configuration-49912f77b78
+
+## Storybook の設定
+
+これまでは `.storybook/config.js` に
+
+```js
+import { configure } from '@storybook/react';
+
+configure(require.context('../src', true, /\.stories\.tsx$/), module);
+```
+
+のように設定していましたが、5.3 から追加された `.storybook/main.js` に書き換えます。
+
+```js
+module.exports = {
+  stories: ['../src/**/*.stories.tsx'],
+};
+```
+
+また TypeScript を利用しているので、webpack の設定を `.storybook/webpack.config.js` に追加する必要があります。以下の例は `ts-loader` を使っています。
+
+```js
+const path = require('path');
+
+module.exports = async ({ config }) => {
+  config.module.rules.push({
+    test: /\.tsx?$/,
+    use: [
+      {
+        loader: 'ts-loader',
+        options: {
+          configFile: path.resolve(__dirname, 'tsconfig.json'),
+        },
+      },
+    ],
+  });
+  config.resolve.extensions.push('.ts', '.tsx');
+  return config;
+};
+```
+
+`npx start-storybook` で Storybook が問題なく起動できることを確認してください。
+
+## Storyshots の導入
+
+まず [`@storybook/addon-storyshots`](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core) をインストールします。
+
+```shell
+yarn add -D @storybook/addon-storyshots
+```
+
+続いて、`src/__tests__/storyshots.test.ts` を追加します。
+
+```ts
+import initStoryshots from '@storybook/addon-storyshots';
+
+initStoryshots({});
+```
+
+これでテストを実行すると snapshot ファイルが生成されますが、出力される snapshot には問題があります。
+
+```jsx
+exports[`Storyshots Title Default Story 1`] = `
+<h1
+  className="Title__H1-tpkuqb-0 hUiFWd"
+>
+  タイトル
+</h1>
+`;
+```
+
+のように styled-components が生成する Class 名になっていて、これではどのようなスタイルが当たっているかわかりません。
+
+これを解決するため、[`jest-styled-component`](https://github.com/styled-components/jest-styled-components) を利用します。
+jest-specific-snapshot の提供する `styleSheetSerializer` を利用すると、以下のように CSS が snapshot ファイルに吐き出すことができます。
+
+```jsx
+exports[`Storyshots Title Default Story 1`] = `
+.c0 {
+  font-weight: 'bold';
+}
+
+<h1
+  className="c0"
+>
+  タイトル
+</h1>
+`;
+```
+
+設定方法は `src/__tests__/storyshots.test.ts` を以下のように変更するだけです。
+
+```ts
+import initStoryshots from '@storybook/addon-storyshots';
+import { styleSheetSerializer } from 'jest-styled-components/serializer';
+
+expect.addSnapshotSerializer(styleSheetSerializer);
+
+initStoryshots({});
+```
+
+これで snapshot の差分を見て、スタイルにどのような変更があったか明確にわかるようになりました。
+説明を端折った部分が多々あるので、詳細は[このブログのリポジトリ](https://github.com/hiramatsutaku/blog-taku-dev)を見ていただければと思います。
