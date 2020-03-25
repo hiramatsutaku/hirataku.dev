@@ -11,6 +11,7 @@ const MenuList = styled.ul`
   display: flex;
   justify-content: flex-end;
   list-style: none;
+  margin-top: 0;
 `;
 const MenuListItem = styled.li`
   margin-left: 1em;

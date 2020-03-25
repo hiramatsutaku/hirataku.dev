@@ -52,6 +52,7 @@ exports[`Storyshots Header Default Story 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   list-style: none;
+  margin-top: 0;
 }
 
 .c2 {
