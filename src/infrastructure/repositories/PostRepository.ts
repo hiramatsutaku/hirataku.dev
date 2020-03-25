@@ -18,12 +18,12 @@ export class PostRepository implements IPostRepository {
     const fs = require('fs-extra');
     const fileNames: string[] = await fs.readdir(this.postsPath);
     const metas = await Promise.all(
-      fileNames.map(async fileName => {
+      fileNames.map(async (fileName) => {
         const { meta } = await import(`../../posts/${fileName}`);
         return meta;
       }),
     );
-    return metas.map(meta => new PostEntity(meta));
+    return metas.map((meta) => new PostEntity(meta));
   }
 
   async getPostByDate(date: PostFields['date']): Promise<PostEntity> {

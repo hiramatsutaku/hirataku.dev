@@ -8,7 +8,7 @@ import { PostRepository } from '../../infrastructure/repositories/PostRepository
 
 type Props = PostFields;
 
-const PostPage: NextPage<Props> = post => {
+const PostPage: NextPage<Props> = (post) => {
   return (
     <Layout description={post.title}>
       <Post post={post} />
@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const service = new PostApplicationService(postRepository);
   const posts = await service.getPosts();
   return {
-    paths: posts.map(post => `/posts/${post.date}`),
+    paths: posts.map((post) => `/posts/${post.date}`),
     fallback: false,
   };
 };
