@@ -39,7 +39,7 @@
     "@next/mdx": "^9.3.3",
     "@storybook/addon-a11y": "^5.3.17",
     "@storybook/addon-storyshots": "^5.3.17",
-    "@storybook/react": "^5.3.17",
+    "@storybook/react": "^5.3.18",
     "@types/jest": "^25.1.4",
     "@types/mdx-js__react": "^1.5.1",
     "@types/node": "^13.9.8",
