@@ -35,7 +35,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@mdx-js/loader": "^1.6.0",
-    "@next/bundle-analyzer": "^9.3.5",
+    "@next/bundle-analyzer": "^9.3.6",
     "@next/mdx": "^9.3.5",
     "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-storyshots": "^5.3.18",
