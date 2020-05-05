@@ -1,4 +1,4 @@
-# hiratakutaku.dev
+# hirataku.dev
 
 - https://hirataku.dev/
 
