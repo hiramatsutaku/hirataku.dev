@@ -67,7 +67,7 @@ exports[`Storyshots Header Default Story 1`] = `
     onClick={[Function]}
     onMouseEnter={[Function]}
   >
-    hirataku.dev
+    blog.hirataku.dev
   </a>
   <nav>
     <ul
