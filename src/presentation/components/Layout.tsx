@@ -15,7 +15,7 @@ interface Props {
   description?: string;
 }
 
-export const Layout: React.FC<Props> = ({ children, description = 'hirataku.dev' }) => (
+export const Layout: React.FC<Props> = ({ children, description = 'blog.hirataku.dev' }) => (
   <Wrapper>
     <Head>
       <meta name="description" content={description} />
