@@ -1,6 +1,6 @@
-# blog-taku-dev
+# hiratakutaku.dev
 
-- https://blog.taku.dev/
+- https://hirataku.dev/
 
 ## env variables
 
