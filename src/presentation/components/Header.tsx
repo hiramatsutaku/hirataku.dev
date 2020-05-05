@@ -20,7 +20,7 @@ const MenuListItem = styled.li`
 export const Header: React.FC<{}> = () => (
   <Wrapper>
     <Link href="/">
-      <a>blog.taku.dev</a>
+      <a>hirataku.dev</a>
     </Link>
     <nav>
       <MenuList>

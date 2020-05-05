@@ -22,7 +22,7 @@ export default class extends App {
     return (
       <>
         <Head>
-          <title>blog.taku.dev</title>
+          <title>hirataku.dev</title>
         </Head>
         <MDXProvider
           components={{
