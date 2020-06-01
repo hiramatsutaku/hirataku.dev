@@ -24,7 +24,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@mdx-js/react": "^1.6.1",
+    "@mdx-js/react": "^1.6.5",
     "next": "^9.3.6",
     "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
