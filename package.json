@@ -36,7 +36,7 @@
     "@babel/core": "^7.9.6",
     "@mdx-js/loader": "^1.6.5",
     "@next/bundle-analyzer": "^9.3.6",
-    "@next/mdx": "^9.3.6",
+    "@next/mdx": "^9.5.2",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-storyshots": "^5.3.19",
     "@storybook/react": "^5.3.19",
