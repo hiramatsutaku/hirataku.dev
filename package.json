@@ -33,7 +33,7 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.12.17",
     "@mdx-js/loader": "^1.6.5",
     "@next/bundle-analyzer": "^9.3.6",
     "@next/mdx": "^9.3.6",
