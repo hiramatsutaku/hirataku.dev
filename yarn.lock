@@ -1575,10 +1575,10 @@
   dependencies:
     webpack-bundle-analyzer "3.6.1"
 
-"@next/mdx@^9.3.6":
-  version "9.3.6"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.3.6.tgz#a617ff3c70124bacfedb7c4092a8d2ce8595aa6f"
-  integrity sha512-gF+Op4wMow4HdN9KFLDgAoz/zEn34vpa5fgbMW9/n67FfBJ9OqZFCM43aKrR2EsI3ehDvkKNgksiSm4vrPt8zg==
+"@next/mdx@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-11.0.0.tgz#626e496221a6a856a7dc5aa4c7585dde106f7529"
+  integrity sha512-Ll/u6kFM1y8a2lKvDee10cuCCecOE98QqGLJgsKqz5Y8e1lHlK5hZsGME/ALG/vDuttObdFnNbkg6FsfElXMvw==
 
 "@next/react-refresh-utils@9.3.6":
   version "9.3.6"
